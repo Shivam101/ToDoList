@@ -24,8 +24,8 @@ public class AddListItem extends Activity {
 
 	EditText mToDoEditText;
 	TextView tv1;
-	CheckBox mPriorityCBHigh,mPriorityCBMedium,mPriorityCBLow;
-	RadioButton mPriorityRBHigh,mPriorityRBMedium,mPriorityRBLow;
+	CheckBox mPriorityCBHigh, mPriorityCBMedium, mPriorityCBLow;
+	RadioButton mPriorityRBHigh, mPriorityRBMedium, mPriorityRBLow;
 	Button mConfirmButton;
 	Dialog progressDialog;
 
@@ -33,18 +33,15 @@ public class AddListItem extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_list_item);
-		tv1 = (TextView)findViewById(R.id.title_todo);
+		tv1 = (TextView) findViewById(R.id.title_todo);
 		tv1.setVisibility(View.GONE);
-		mToDoEditText = (EditText)findViewById(R.id.todo_details);
-		mConfirmButton = (Button)findViewById(R.id.save_todo);
-		mPriorityRBHigh = (RadioButton)findViewById(R.id.priorityHigh);
-		mPriorityRBMedium = (RadioButton)findViewById(R.id.priorityMedium);
-		mPriorityRBLow = (RadioButton)findViewById(R.id.priorityLow);
-		//mPriorityCBHigh = (CheckBox)findViewById(R.id.priorityCBHigh);
-		//mPriorityCBMedium = (CheckBox)findViewById(R.id.priorityCBMedium);
-		//mPriorityCBLow = (CheckBox)findViewById(R.id.priorityCBLow);
+		mToDoEditText = (EditText) findViewById(R.id.todo_details);
+		mConfirmButton = (Button) findViewById(R.id.save_todo);
+		mPriorityRBHigh = (RadioButton) findViewById(R.id.priorityHigh);
+		mPriorityRBMedium = (RadioButton) findViewById(R.id.priorityMedium);
+		mPriorityRBLow = (RadioButton) findViewById(R.id.priorityLow);
 		mConfirmButton.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -52,52 +49,46 @@ public class AddListItem extends Activity {
 				boolean checkedHigh = mPriorityRBHigh.isChecked();
 				boolean checkedMedium = mPriorityRBMedium.isChecked();
 				boolean checkedLow = mPriorityRBLow.isChecked();
-				if(todo.isEmpty())
-				{
-					AlertDialog.Builder builder = new AlertDialog.Builder(AddListItem.this);
+				if (todo.isEmpty()) {
+					AlertDialog.Builder builder = new AlertDialog.Builder(
+							AddListItem.this);
 					builder.setMessage(R.string.empty_text);
 					builder.setTitle(R.string.error_title);
 					builder.setPositiveButton(android.R.string.ok, null);
 					AlertDialog dialog = builder.create();
 					dialog.show();
-				}
-				else
-				{
-					AddListItem.this.progressDialog=ProgressDialog.show(AddListItem.this, "", "Saving...", true);
+				} else {
+					AddListItem.this.progressDialog = ProgressDialog.show(
+							AddListItem.this, "", "Saving...", true);
 					ParseObject todoObject = new ParseObject("todoItems");
 					todoObject.put("itemName", todo);
-					if(checkedHigh==true)
-					{
+					if (checkedHigh == true) {
 						todoObject.put("itemPriority", 10);
-					}
-					else if(checkedLow==true)
-					{
+					} else if (checkedLow == true) {
 						todoObject.put("itemPriority", 0);
-					}
-					else if(checkedMedium==true)
-					{
+					} else if (checkedMedium == true) {
 						todoObject.put("itemPriority", 5);
 					}
 					todoObject.saveInBackground(new SaveCallback() {
-						
+
 						@Override
 						public void done(ParseException e) {
 							// TODO Auto-generated method stub
-							if(e==null)
-							{
+							if (e == null) {
 								AddListItem.this.progressDialog.dismiss();
-								Intent i = new Intent(AddListItem.this,ToDoListActivity.class);
+								Intent i = new Intent(AddListItem.this,
+										ToDoListActivity.class);
 								i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 								i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 								startActivity(i);
-							}
-							else
-							{
+							} else {
 								AddListItem.this.progressDialog.dismiss();
-								AlertDialog.Builder builder = new AlertDialog.Builder(AddListItem.this);
+								AlertDialog.Builder builder = new AlertDialog.Builder(
+										AddListItem.this);
 								builder.setMessage(R.string.save_error);
 								builder.setTitle(R.string.error_title);
-								builder.setPositiveButton(android.R.string.ok, null);
+								builder.setPositiveButton(android.R.string.ok,
+										null);
 								AlertDialog dialog = builder.create();
 								dialog.show();
 							}
