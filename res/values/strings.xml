@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ToDoList</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="list_heading">Things to Do</string>
+    <string name="title_activity_add_list_item">New To Do</string>
+    <string name="enter_to_do">Enter to do</string>
+    <string name="priority_high">High Priority</string>
+    <string name="priority_medium">Medium Priority</string>
+    <string name="priority_low">Low Priority</string>
+    <string name="savetodo">Save To Do</string>
+    <string name="empty_text">Item cannot be left blank</string>
+    <string name="error_title">Ouch!</string>
+    <string name="save_error">To Do could not be saved</string>
+
+</resources>
