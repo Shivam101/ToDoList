@@ -8,41 +8,149 @@
 package com.example.todolist;
 
 public final class R {
+    public static final class anim {
+        public static final int elv_popup_hide=0x7f040000;
+        public static final int elv_popup_show=0x7f040001;
+    }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int BrightGreen=0x7f05000c;
+        public static final int DarkGray=0x7f050012;
+        public static final int LawnGreen=0x7f05000b;
+        public static final int LightGreen=0x7f05000a;
+        public static final int LightSteelBlue=0x7f05000f;
+        public static final int actioncolor=0x7f05002d;
+        public static final int aqua=0x7f050006;
+        public static final int background_holo_light=0x7f050015;
+        public static final int biocolor=0x7f050029;
+        public static final int black=0x7f050007;
+        /**  Use with black text 
+         */
+        public static final int blue_200=0x7f050021;
+        public static final int blue_400=0x7f050022;
+        public static final int blue_600=0x7f050023;
+        public static final int blue_800=0x7f050024;
+        public static final int blue_ab=0x7f050025;
+        public static final int brandcolor=0x7f05002c;
+        public static final int bw=0x7f050011;
+        public static final int centurycolor=0x7f05002b;
+        public static final int chelseablue=0x7f05002e;
+        public static final int darker_gray=0x7f050016;
+        public static final int elv_btn_focused=0x7f050001;
+        public static final int elv_btn_normal=0x7f050002;
+        public static final int elv_btn_pressed=0x7f050000;
+        public static final int elv_popup_bg_color=0x7f050003;
+        public static final int elv_popup_text_color=0x7f050005;
+        public static final int elv_separator_color=0x7f050004;
+        public static final int factscolor=0x7f050028;
+        public static final int gallerycolor=0x7f050027;
+        public static final int green=0x7f050009;
+        public static final int holo_blue_dark=0x7f050014;
+        public static final int navy=0x7f050010;
+        public static final int orange=0x7f05002f;
+        public static final int orange2=0x7f050030;
+        /**  Use with black text 
+         */
+        public static final int orange_050=0x7f05001f;
+        /**  Use with black text 
+         */
+        public static final int orange_100=0x7f050020;
+        /**  Use with black text 
+         */
+        public static final int orange_200=0x7f05001b;
+        /**  Use with black text 
+         */
+        public static final int orange_300=0x7f05001c;
+        /**  Use with black text 
+         */
+        public static final int orange_400=0x7f05001d;
+        /**  Use with black text 
+         */
+        public static final int orange_500=0x7f05001e;
+        /**  Use with black text 
+         */
+        public static final int orange_600=0x7f05001a;
+        /**  Use with white text 
+         */
+        public static final int orange_700=0x7f050019;
+        public static final int orange_800=0x7f050017;
+        /**  Use with white text 
+         */
+        public static final int orange_900=0x7f050018;
+        public static final int pallet=0x7f050039;
+        public static final int palletblue=0x7f050031;
+        public static final int palletblue2=0x7f050036;
+        public static final int palletgolden=0x7f050034;
+        public static final int palletgolden2=0x7f050038;
+        public static final int palletlightgreen=0x7f050033;
+        public static final int palletpurple=0x7f050032;
+        public static final int palletpurple2=0x7f050037;
+        public static final int palletred=0x7f050035;
+        public static final int quizcolor=0x7f050026;
+        public static final int quotescolor=0x7f05002a;
+        public static final int red=0x7f05000d;
+        public static final int royalblue=0x7f05000e;
+        public static final int screen_background_dark=0x7f050013;
+        public static final int white=0x7f050008;
+    }
+    public static final class dimen {
+        /**  The touch slop you need to cause a swipe instead of a scroll 
+         */
+        public static final int elv_touch_slop=0x7f060001;
+        /**  The bottom offset the undo popup should have 
+         */
+        public static final int elv_undo_bottom_offset=0x7f060000;
     }
     public static final class drawable {
         public static final int bg_card=0x7f020000;
-        public static final int ic_action_new=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
+        public static final int elv_ic_action_undo=0x7f020001;
+        public static final int elv_popup_bg=0x7f020002;
+        public static final int elv_toast_frame=0x7f020003;
+        public static final int elv_undo_btn_bg=0x7f020004;
+        public static final int elv_undo_btn_bg_focused=0x7f020005;
+        public static final int elv_undo_btn_bg_pressed=0x7f020006;
+        public static final int ic_action_new=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int screen_background_dark_transparent=0x7f020009;
     }
     public static final class id {
-        public static final int fabbutton=0x7f060008;
-        public static final int priorityGroup=0x7f060002;
-        public static final int priorityHigh=0x7f060003;
-        public static final int priorityLow=0x7f060005;
-        public static final int priorityMedium=0x7f060004;
-        public static final int save_todo=0x7f060006;
-        public static final int title_todo=0x7f060000;
-        public static final int todo_details=0x7f060001;
-        public static final int todo_items=0x7f060007;
+        public static final int fabbutton=0x7f090009;
+        public static final int priorityGroup=0x7f090002;
+        public static final int priorityHigh=0x7f090003;
+        public static final int priorityLow=0x7f090005;
+        public static final int priorityMedium=0x7f090004;
+        public static final int save_todo=0x7f090006;
+        public static final int swipeRefresh=0x7f090007;
+        public static final int text=0x7f09000a;
+        public static final int title_todo=0x7f090000;
+        public static final int todo_details=0x7f090001;
+        public static final int todo_items=0x7f090008;
+        public static final int undo=0x7f09000b;
     }
     public static final class layout {
         public static final int activity_add_list_item=0x7f030000;
         public static final int activity_to_do_list=0x7f030001;
+        public static final int elv_undo_popup=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int empty_text=0x7f040009;
-        public static final int enter_to_do=0x7f040004;
-        public static final int error_title=0x7f04000a;
-        public static final int hello_world=0x7f040001;
-        public static final int list_heading=0x7f040002;
-        public static final int priority_high=0x7f040005;
-        public static final int priority_low=0x7f040007;
-        public static final int priority_medium=0x7f040006;
-        public static final int save_error=0x7f04000b;
-        public static final int savetodo=0x7f040008;
-        public static final int title_activity_add_list_item=0x7f040003;
+        public static final int app_name=0x7f070004;
+        public static final int elv_item_deleted=0x7f070002;
+        public static final int elv_n_items_deleted=0x7f070003;
+        public static final int elv_undo=0x7f070000;
+        public static final int elv_undo_all=0x7f070001;
+        public static final int empty_text=0x7f07000d;
+        public static final int enter_to_do=0x7f070008;
+        public static final int error_title=0x7f07000e;
+        public static final int hello_world=0x7f070005;
+        public static final int internet_error=0x7f070010;
+        public static final int list_heading=0x7f070006;
+        public static final int priority_high=0x7f070009;
+        public static final int priority_low=0x7f07000b;
+        public static final int priority_medium=0x7f07000a;
+        public static final int save_error=0x7f07000f;
+        public static final int savetodo=0x7f07000c;
+        public static final int title_activity_add_list_item=0x7f070007;
     }
     public static final class style {
         /** 
@@ -66,10 +174,11 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f050000;
+        public static final int AppBaseTheme=0x7f080001;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050001;
+        public static final int AppTheme=0x7f080002;
+        public static final int elv_fade_animation=0x7f080000;
     }
 }

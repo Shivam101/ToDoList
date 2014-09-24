@@ -4,11 +4,14 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.MailTo;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +38,11 @@ public class AddListItem extends Activity {
 		setContentView(R.layout.activity_add_list_item);
 		tv1 = (TextView) findViewById(R.id.title_todo);
 		tv1.setVisibility(View.GONE);
+		ActionBar ab=getActionBar();
+		Resources r=getResources();
+		Drawable d=r.getDrawable(R.color.blue_ab);
+		ab.setBackgroundDrawable(d);
+		
 		mToDoEditText = (EditText) findViewById(R.id.todo_details);
 		mConfirmButton = (Button) findViewById(R.id.save_todo);
 		mPriorityRBHigh = (RadioButton) findViewById(R.id.priorityHigh);
