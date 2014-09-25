@@ -91,8 +91,31 @@ public class ToDoListActivity extends Activity {
 
 	                        @Override
 	                        public void onDismiss(ListView listView, int[] reverseSortedPositions) {
-	                            for (int position : reverseSortedPositions) {
+	                            for (final int position : reverseSortedPositions) {
 	                                mAdapter.remove(mAdapter.getItem(position));
+	                                ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("todoItems");
+	                                //query.whereEqualTo("itemName", todolist.getItemAtPosition(position));
+	                                query.findInBackground(new FindCallback<ParseObject>() {
+										
+										@Override
+										public void done(List<ParseObject> items, ParseException e) {
+											// TODO Auto-generated method stub
+											if(e==null)
+											{
+												pItems = items;
+												ArrayList<String> todo_items = new ArrayList<String>();
+												for(ParseObject obj : pItems)
+												{
+													//ParseObject pob = lists.get(i);
+													obj = pItems.get(position);
+													obj.deleteInBackground();
+												}
+											}
+										}
+									});
+	                                
+	                                //ParseObject.createWithoutData("todoItems", arg1)
+	                                Toast.makeText(getBaseContext(), "Done with this task", Toast.LENGTH_SHORT).show();
 	                            }
 	                            mAdapter.notifyDataSetChanged();
 	                        }
@@ -155,34 +178,7 @@ public class ToDoListActivity extends Activity {
 		
 	}
 	
-	/*public void checkItems()
-	{
-		//ParseUser currentUser = ParseUser.getCurrentUser();
-	//	ParseRelation<ParseObject> mItemRelation = currentUser.getRelation("itemRelation");
-		mItemRelation.getQuery().findInBackground(new FindCallback<ParseObject>() {
-			
-			@Override
-			public void done(List<ParseObject> items, ParseException e) {
-				// TODO Auto-generated method stub
-				if (e == null) {
-					for (int i = 0; i < pItems.size(); i++) {
-						ParseObject ob = pItems.get(i);
-						for (ParseObject mobj : items) {
-							if (mobj.getObjectId().equals(
-									ob.getObjectId())) {
-								todolist.setItemChecked(i, true);
-							}
-						}
-					}
-				} else {
-
-				}
-
-			}
-		});
-
-	}*/
-	public void getTodos() {
+		public void getTodos() {
 		ParseQuery<ParseObject> itemQuery = ParseQuery.getQuery("todoItems");
 		itemQuery.orderByDescending("itemPriority");
 		itemQuery.setCachePolicy(CachePolicy.CACHE_THEN_NETWORK);
@@ -199,7 +195,7 @@ public class ToDoListActivity extends Activity {
 				pItems = items;
 				String[] todos = new String[pItems.size()];
 				int i = 0;
-				ArrayList<String> todo_items = new ArrayList<String>();
+				ArrayList<String> todo_items = new ArrayList<String>(); //very important line. Fixes issue with swipe to dismiss
 				for(ParseObject obj : pItems)
 				{
 					todo_items.add(obj.getString("itemName"));
