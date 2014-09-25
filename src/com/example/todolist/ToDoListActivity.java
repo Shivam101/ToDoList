@@ -1,6 +1,7 @@
 package com.example.todolist;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ActionBar;
@@ -27,6 +28,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseQuery.CachePolicy;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
@@ -109,8 +111,8 @@ public class ToDoListActivity extends Activity {
 				//}
 			}
 		});
-		//todolist.setOnTouchListener(touchListener);
-		//todolist.setOnScrollListener(touchListener.makeScrollListener());
+		todolist.setOnTouchListener(touchListener);
+		todolist.setOnScrollListener(touchListener.makeScrollListener());
 		mSwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipeRefresh);
 		mSwipeRefreshLayout.setColorScheme(R.color.blue_200, R.color.blue_400, R.color.blue_600, R.color.blue_800);
 		//mSwipeRefreshLayout.setColorScheme(R.color.red,R.color.blue_600,R.color.green,R.color.orange_600);
@@ -153,10 +155,10 @@ public class ToDoListActivity extends Activity {
 		
 	}
 	
-	public void checkItems()
+	/*public void checkItems()
 	{
-		ParseUser currentUser = ParseUser.getCurrentUser();
-		ParseRelation<ParseObject> mItemRelation = currentUser.getRelation("itemRelation");
+		//ParseUser currentUser = ParseUser.getCurrentUser();
+	//	ParseRelation<ParseObject> mItemRelation = currentUser.getRelation("itemRelation");
 		mItemRelation.getQuery().findInBackground(new FindCallback<ParseObject>() {
 			
 			@Override
@@ -179,10 +181,13 @@ public class ToDoListActivity extends Activity {
 			}
 		});
 
-	}
+	}*/
 	public void getTodos() {
 		ParseQuery<ParseObject> itemQuery = ParseQuery.getQuery("todoItems");
-		itemQuery.orderByDescending("itemPriority").findInBackground(new FindCallback<ParseObject>() {
+		itemQuery.orderByDescending("itemPriority");
+		itemQuery.setCachePolicy(CachePolicy.CACHE_THEN_NETWORK);
+
+		itemQuery.findInBackground(new FindCallback<ParseObject>() {
 			
 			@Override
 			public void done(List<ParseObject> items, ParseException e) {
@@ -194,12 +199,14 @@ public class ToDoListActivity extends Activity {
 				pItems = items;
 				String[] todos = new String[pItems.size()];
 				int i = 0;
+				ArrayList<String> todo_items = new ArrayList<String>();
 				for(ParseObject obj : pItems)
 				{
+					todo_items.add(obj.getString("itemName"));
 					todos[i] = obj.getString("itemName"); 
 					i++;
 				}
-				mAdapter = new ArrayAdapter<String>(ToDoListActivity.this, android.R.layout.simple_list_item_checked,todos);
+				mAdapter = new ArrayAdapter<String>(ToDoListActivity.this, android.R.layout.simple_list_item_1,todo_items);
 				todolist.setAdapter(mAdapter);
 			
 			}
