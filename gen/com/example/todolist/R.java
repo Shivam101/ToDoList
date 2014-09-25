@@ -126,12 +126,14 @@ public final class R {
         public static final int title_todo=0x7f090000;
         public static final int todo_details=0x7f090001;
         public static final int todo_items=0x7f090008;
+        public static final int todo_text=0x7f09000c;
         public static final int undo=0x7f09000b;
     }
     public static final class layout {
         public static final int activity_add_list_item=0x7f030000;
         public static final int activity_to_do_list=0x7f030001;
         public static final int elv_undo_popup=0x7f030002;
+        public static final int list_item=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f070004;
@@ -146,6 +148,7 @@ public final class R {
         public static final int internet_error=0x7f070010;
         public static final int list_heading=0x7f070006;
         public static final int priority_high=0x7f070009;
+        public static final int priority_level_error=0x7f070011;
         public static final int priority_low=0x7f07000b;
         public static final int priority_medium=0x7f07000a;
         public static final int save_error=0x7f07000f;

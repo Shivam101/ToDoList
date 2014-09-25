@@ -81,10 +81,12 @@ int id text 0x7f09000a
 int id title_todo 0x7f090000
 int id todo_details 0x7f090001
 int id todo_items 0x7f090008
+int id todo_text 0x7f09000c
 int id undo 0x7f09000b
 int layout activity_add_list_item 0x7f030000
 int layout activity_to_do_list 0x7f030001
 int layout elv_undo_popup 0x7f030002
+int layout list_item 0x7f030003
 int string app_name 0x7f070004
 int string elv_item_deleted 0x7f070002
 int string elv_n_items_deleted 0x7f070003
@@ -97,6 +99,7 @@ int string hello_world 0x7f070005
 int string internet_error 0x7f070010
 int string list_heading 0x7f070006
 int string priority_high 0x7f070009
+int string priority_level_error 0x7f070011
 int string priority_low 0x7f07000b
 int string priority_medium 0x7f07000a
 int string save_error 0x7f07000f

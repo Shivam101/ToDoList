@@ -7,14 +7,15 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-         >
+        android:layout_height="fill_parent" >
 
         <ListView
             android:id="@+id/todo_items"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" >
+            android:layout_margin="10dp"
+            android:divider="@null"
+            android:dividerHeight="0dp" >
         </ListView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
